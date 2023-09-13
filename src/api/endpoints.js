@@ -7,7 +7,7 @@ export const auth = {
 }
 
 export const user = {
-    getUser: '/user'
+    getUser: '/users/',
 }
 
 export const brand = {

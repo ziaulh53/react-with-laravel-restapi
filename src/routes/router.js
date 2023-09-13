@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Signup, Login, NotFound, Users, Dashboard } from "../pages";
+import { Signup, Login, NotFound, Users, Dashboard, UserForm } from "../pages";
 import GuestLayout from "../components/GuestLayout";
 import AuthLayout from "../components/AuthLayout";
 
@@ -15,6 +15,14 @@ const router = createBrowserRouter([
       {
         path: "/app/users",
         Component: Users,
+      },
+      {
+        path: "/app/users/new",
+        Component: UserForm,
+      },
+      {
+        path: "/app/users/:id",
+        Component: UserForm,
       },
     ],
   },
