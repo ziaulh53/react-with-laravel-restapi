@@ -8,6 +8,7 @@ import {
   REHYDRATE,
   persistStore,
 } from "redux-persist";
+import { temSlice } from "./tem";
 
 const persistConfig = {
   key: authSlice.name,
@@ -16,7 +17,8 @@ const persistConfig = {
 };
 export const rootReducers = combineReducers({
   [authSlice.name]: persistReducer(persistConfig, authSlice.reducer),
-  cart: cartSlice.reducer,
+  [cartSlice.name]: cartSlice.reducer,
+  [temSlice.name]: temSlice.reducer 
 });
 
 const store = configureStore({

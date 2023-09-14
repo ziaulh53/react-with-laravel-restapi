@@ -4,6 +4,7 @@ import { loginStore } from "../store/auth";
 import { Link } from "react-router-dom";
 import { api } from "../api/apiConfig";
 import { auth } from "../api/endpoints";
+import { updateData, updateSendEmailStatus } from "../store/tem";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,10 @@ const Login = () => {
     }
   }
 
+  useEffect(()=>{
+    dispatch(updateData({name: 'test'}))
+    dispatch(updateSendEmailStatus({sendEmailStatus: true}))
+  })
 
   return (
     <div className="flex items-center min-h-screen justify-center">
