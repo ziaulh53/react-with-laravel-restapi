@@ -10,6 +10,7 @@ export default function UserForm() {
     name: "",
     email: "",
     password: "",
+    role:""
   });
 
   // single user
@@ -21,6 +22,7 @@ export default function UserForm() {
           name: result?.user?.name,
           email: result?.user?.email,
           password: result?.user?.password,
+          role: result?.user?.role || 'user'
         });
       }
     } catch (error) {}
@@ -53,6 +55,7 @@ export default function UserForm() {
   useEffect(() => {
     fetchSingleUser();
   }, []);
+
   return (
     <div className="animated fadeIn">
       <div className="mb-4">
@@ -67,9 +70,16 @@ export default function UserForm() {
         <label className="block font-semibold mb-2">Email</label>
         <input
           value={user.email}
-          type="email"
           className="border px-3 py-2 text-base text-gray-500 focus:border-gray-400 rounded-md outline-none"
           onChange={({ target }) => setUser({ ...user, email: target.value })}
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block font-semibold mb-2">Role</label>
+        <input
+          value={user.role}
+          className="border px-3 py-2 text-base text-gray-500 focus:border-gray-400 rounded-md outline-none"
+          onChange={({ target }) => setUser({ ...user, role: target.value })}
         />
       </div>
      {!id && <div className="mb-4">

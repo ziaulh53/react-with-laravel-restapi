@@ -8,6 +8,7 @@ export default function Signup() {
     name: "",
     email: "",
     password: "",
+    role: "admin"
   });
 
   const onChange = (e) => {

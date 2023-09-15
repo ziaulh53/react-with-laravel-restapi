@@ -47,6 +47,7 @@ export default function Users() {
               <th className="bg-slate-300 py-3 border-r">ID</th>
               <th className="bg-slate-300 border-r">Name</th>
               <th className="bg-slate-300 border-r">Email</th>
+              <th className="bg-slate-300 border-r">User Type</th>
               <th className="bg-slate-300 border-r">Created At</th>
               <th className="bg-slate-300 border-r">Updated At</th>
               <th className="bg-slate-300">Actions</th>
@@ -58,6 +59,7 @@ export default function Users() {
                 <td className="p-3 text-center border-b">{u?.id}</td>
                 <td className="p-3 text-center border-b">{u?.name}</td>
                 <td className="p-3 text-center border-b">{u?.email}</td>
+                <td className="p-3 text-center border-b capitalize">{u?.role}</td>
                 <td className="p-3 text-center border-b">{u?.created_at}</td>
                 <td className="p-3 text-center border-b">{u?.updated_at}</td>
                 <td className="p-3 text-center border-b">
