@@ -20,7 +20,7 @@ export default function Signup() {
     try {
       const result = await api.post(auth.reg, userData)
       if(result.success){
-        return <Navigate to="/login"/>
+        return <Navigate to="/signin"/>
       }
     } catch (error) {
       
@@ -86,7 +86,7 @@ export default function Signup() {
             </button>
             <Link
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-              to="/login"
+              to="/signin"
             >
               Already have account?
             </Link>
