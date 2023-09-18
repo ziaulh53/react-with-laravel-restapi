@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../api/apiConfig";
-import { user } from "../api/endpoints";
+import { auth, user } from "../api/endpoints";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutStore } from "../store/auth";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -28,11 +30,21 @@ export default function Users() {
       console.log(error);
     }
   };
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
+    try {
+      const result = await api.post(auth.logout);
+      if (result.success) {
+        dispatch(logoutStore());
+      }
+    } catch (error) {}
+  };
 
   return (
     <div>
       <div className="flex justify-between items-center mb-5">
         <h1 className="text-xl font-semibold">Users</h1>
+        <button onClick={handleLogout}>Logout</button>
         <Link
           className="text-white bg-green-700 px-3 py-1 rounded-lg"
           to="/app/users/new"
@@ -65,7 +77,7 @@ export default function Users() {
                 <td className="p-3 text-center border-b">
                   <Link
                     className="mr-2 text-sm text-blue-400 underline"
-                    to={`/app/users/${u?.id}`}
+                    to={`/users/${u?.id}`}
                   >
                     Edit
                   </Link>
